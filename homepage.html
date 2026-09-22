@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); height: 100%; }
+  body {
+    height: 100%;
+    font-family: 'Inter', sans-serif;
+    color: #f4f1ea;
+    background-color: #10130f;
+    background-image:
+      linear-gradient(180deg, rgba(8,10,7,0.35) 0%, rgba(8,10,7,0.15) 35%, rgba(8,10,7,0.55) 100%),
+      url('https://images.unsplash.com/photo-1470770903676-69b98201ea1c?w=1400&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 9vh 7vw 4vh;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .top {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  #time {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(3.2rem, 15vw, 4.4rem);
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+  }
+  #date {
+    margin-top: 0.6rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    color: rgba(244,241,234,0.75);
+  }
+
+  form.search {
+    display: flex;
+    align-items: center;
+    background: rgba(16,19,15,0.4);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(244,241,234,0.28);
+    border-radius: 999px;
+    padding: 0.2rem 0.3rem 0.2rem 1.3rem;
+    margin: 2.4rem 0 0;
+    width: 100%;
+    max-width: 34rem;
+  }
+  form.search input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #f4f1ea;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    padding: 0.8rem 0;
+  }
+  form.search input::placeholder {
+    color: rgba(244,241,234,0.55);
+  }
+  form.search button {
+    background: #f4f1ea;
+    color: #10130f;
+    border: none;
+    border-radius: 999px;
+    padding: 0.6rem 1.15rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+  .links-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.1rem 0.4rem;
+    max-width: 26rem;
+  }
+  .link-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+    color: #f4f1ea;
+  }
+  .link-icon .glyph {
+    width: 52px;
+    height: 52px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.3rem;
+    color: #f4f1ea;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,255,255,0.14);
+    transition: transform 0.15s ease;
+  }
+  .link-icon:active .glyph {
+    transform: scale(0.93);
+  }
+  .link-icon span.label {
+    font-size: 0.72rem;
+    color: rgba(244,241,234,0.85);
+    text-align: center;
+  }
+  .credit {
+    font-size: 0.68rem;
+    color: rgba(244,241,234,0.45);
+  }
+  .credit a { color: inherit; }
+</style>
+</head>
+<body>
+
+  <div class="top">
+    <div id="time">--:--</div>
+    <div id="date">loading</div>
+    <form class="search" action="https://search.brave.com/search" method="GET" target="_self">
+      <input type="text" name="q" placeholder="search" autocomplete="off" autofocus>
+      <button type="submit">go</button>
+    </form>
+  </div>
+
+  <div class="bottom">
+    <div class="links-row">
+      <a class="link-icon" href="https://github.com/Not-Albin">
+        <span class="glyph" style="background:#24292e;">G</span>
+        <span class="label">GitHub</span>
+      </a>
+      <a class="link-icon" href="https://claude.ai">
+        <span class="glyph" style="background:#c96442;">C</span>
+        <span class="label">Claude</span>
+      </a>
+      <a class="link-icon" href="https://www.youtube.com">
+        <span class="glyph" style="background:#cc0000;">▶</span>
+        <span class="label">YouTube</span>
+      </a>
+      <a class="link-icon" href="https://www.reddit.com">
+        <span class="glyph" style="background:#ff4500;">R</span>
+        <span class="label">Reddit</span>
+      </a>
+      <a class="link-icon" href="https://mgu.ac.in">
+        <span class="glyph" style="background:#0b4f6c;">M</span>
+        <span class="label">MGU</span>
+      </a>
+      <a class="link-icon" href="https://www.amazon.in">
+        <span class="glyph" style="background:#232f3e;">A</span>
+        <span class="label">Amazon</span>
+      </a>
+    </div>
+    <div class="credit">photo: unsplash</div>
+  </div>
+
+  <script>
+    function pad(n) { return n.toString().padStart(2, '0'); }
+    function tick() {
+      const now = new Date();
+      document.getElementById('time').textContent = pad(now.getHours()) + ':' + pad(now.getMinutes());
+      const days = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];
+      const months = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
+      document.getElementById('date').textContent = days[now.getDay()] + ', ' + now.getDate() + ' ' + months[now.getMonth()];
+    }
+    tick();
+    setInterval(tick, 1000 * 15);
+  </script>
+
+</body>
+</html>
